@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 80;
 app.options('*', cors());  
 app.use(cors());
 app.use(express.json());
+app.use(express.static('static'))
 
 // Endpoint to handle chat messages (highlight)
 app.post('/chat', async (req, res) => {
