@@ -8,7 +8,7 @@
         const saveServerUrlBtn = document.getElementById("save-server-url");
 
         // Get server URL from localStorage or use a default
-        let serverUrl = localStorage.getItem("serverUrl") || "http://localhost/chat";
+        let serverUrl = localStorage.getItem("serverUrl") || window.location.href + "chat";
         serverUrlInput.value = serverUrl;
         settingsIcon.addEventListener("click", () => {
             serverModal.style.display = "flex";
