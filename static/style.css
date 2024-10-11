@@ -1,0 +1,232 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #333;
+  background-color: #f5f5f5;
+}
+
+.chat-container {
+  width: 700px;
+  height: 80vh;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.chat-header {
+  background: linear-gradient(135deg, #3F72AF, #112D4E);
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  position: relative;
+}
+
+.chat-header .settings-icon {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.chat-box {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #F9F9F9;
+  position: relative;
+}
+
+.chat-message {
+  margin-bottom: 15px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.5s forwards ease;
+  position: relative;
+  display: flex;
+  align-items: center; /* Align copy icon and bubble vertically */
+}
+
+.user-message, .bot-message {
+  padding: 15px;
+  border-radius: 15px;
+  max-width: 75%;
+  line-height: 1.5;
+  position: relative;
+}
+
+.user-message {
+  background-color: #E0E0E0;
+  color: #333;
+  text-align: right;
+  margin-left: auto;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.bot-message {
+  background-color: #3F72AF;
+  color: white;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.copy-icon {
+  margin-right: 10px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.copy-icon:hover {
+  opacity: 1;
+}
+
+.chat-input {
+  display: flex;
+  padding: 15px;
+  background-color: #FFF;
+  border-top: 1px solid #ddd;
+  position: relative;
+}
+
+.chat-input textarea {
+  flex: 1;
+  padding: 15px;
+  font-size: 1rem;
+  border: 2px solid #3F72AF;
+  border-radius: 10px;
+  outline: none;
+  resize: none;
+  height: 50px;
+  transition: border-color 0.3s;
+}
+
+.chat-input textarea:focus {
+  border-color: #112D4E;
+}
+
+.chat-input button {
+  padding: 15px;
+  margin-left: 10px;
+  background-color: #3F72AF;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.chat-input button:hover {
+  background-color: #112D4E;
+}
+
+.chat-input .send-icon {
+  font-size: 1.5rem;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.chat-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+}
+
+.scroll-to-bottom {
+  position: absolute;
+  bottom: 80px;
+  right: 20px;
+  background-color: #3F72AF;
+  color: white;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none; 
+  transition: opacity 0.2s;
+}
+
+.scroll-to-bottom.show {
+  display: block; 
+}
+
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 10px;
+  opacity: 0;
+  animation: fadeIn 0.3s forwards ease;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: #333;
+  border-radius: 50%;
+  animation: bounce 1s infinite alternate;
+}
+
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+/* Modal styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 100%;
+  text-align: center;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #3F72AF;
+  border-radius: 5px;
+  outline: none;
+  font-size: 1rem;
+}
+
+.modal-content button {
+  padding: 10px 20px;
+  background-color: #3F72AF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background-color: #112D4E;
+}
+
+@keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+@keyframes bounce { to { opacity: 0.3; transform: translateY(-5px); } }

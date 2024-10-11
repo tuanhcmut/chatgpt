@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="chat-container">
+        <header class="chat-header">
+            AI Chatbot
+            <i class="fas fa-cog settings-icon" title="Settings"></i>
+        </header>
+        <div class="chat-box" id="chat-box">
+        </div>
+        <div class="chat-input">
+            <textarea id="user-input" placeholder="Type your message here..."></textarea>
+            <i class="fas fa-paper-plane send-icon" id="send-btn"></i>
+        </div>
+        <i class="fas fa-chevron-down scroll-to-bottom" id="scroll-down-btn" title="Scroll to Bottom"></i>
+    </div>
+
+    <div class="modal" id="server-modal">
+        <div class="modal-content">
+            <h3>Set Server URL</h3>
+            <input type="text" id="server-url" placeholder="Enter Server URL">
+            <button id="save-server-url">Save</button>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
